@@ -11,7 +11,7 @@
 #include "cy_wifi.h"
 #include "cy_ota.h"
 #include "cy_weather.h"
-#include "ds1621_tool.h"
+#include "dht22_tool.h"
 #include "btn_led_tool.h"
 
 const char* gv_hostname = "gizwitsds1621";
@@ -39,7 +39,7 @@ void setup() {
 
   init_ota(gv_hostname);
 
-  init_ds1621();
+  init_dht22();
   do_sensor();
   gv_senstick = false;
   senstick.attach(60, do_senstick);
@@ -75,7 +75,7 @@ void loop() {
 
 void do_sensor() {
 
-  get_ds1621();
+  get_dht22();
 
 }
 
