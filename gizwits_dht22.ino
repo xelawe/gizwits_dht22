@@ -14,7 +14,7 @@
 #include "dht22_tool.h"
 #include "btn_led_tool.h"
 
-const char* gv_hostname = "gizwitsds1621";
+const char* gv_hostname = "gizwitsdht22";
 
 Ticker senstick;
 boolean gv_senstick;

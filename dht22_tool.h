@@ -22,8 +22,8 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 
-void init_dht22(){
-    dht.begin();
+void init_dht22() {
+  dht.begin();
 }
 
 void get_dht22() {
@@ -36,17 +36,17 @@ void get_dht22() {
 
   // Check if any reads failed and exit early (to try again).
   if (isnan(h) || isnan(t)) {
-    Serial.println("Failed to read from DHT sensor!");
+    DebugPrintln("Failed to read from DHT sensor!");
     return;
   }
 
-  Serial.print("Humidity: ");
-  Serial.print(h);
-  Serial.print(" %\t");
-  Serial.print("Temperature: ");
-  Serial.print(t);
-  Serial.print(" *C ");
-  Serial.println("");
+  DebugPrint("Humidity: ");
+  DebugPrint(h);
+  DebugPrint(" %\t");
+  DebugPrint("Temperature: ");
+  DebugPrint(t);
+  DebugPrint(" *C ");
+  DebugPrintln("");
 
   //send_val(1, t);
   //send_val(20, h);
