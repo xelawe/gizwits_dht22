@@ -11,8 +11,9 @@
 #include "cy_wifi.h"
 #include "cy_ota.h"
 #include "cy_weather.h"
-#include "dht22_tool.h"
 #include "btn_led_tool.h"
+#include "dht22_tool.h"
+
 
 const char* gv_hostname = "gizwitsdht22";
 
@@ -29,6 +30,8 @@ void setup() {
 #ifdef serdebug
   Serial.begin(115200);
 #endif
+
+  DebugPrintln("\n" + String(__DATE__) + ", " + String(__TIME__) + " " + String(__FILE__));
 
   set_rgb(255, 255, 255);
   delay(500);
@@ -59,7 +62,9 @@ void loop() {
   check_ota();
 
   if (gv_senstick == true) {
+    set_rgb(0, 255, 0);
     do_sensor();
+    set_rgb(0, 0, 0);
     gv_senstick = false;
   }
 
