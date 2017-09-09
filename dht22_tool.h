@@ -48,6 +48,6 @@ void get_dht22() {
   DebugPrint(" *C ");
   DebugPrintln("");
 
-  //send_val(1, t);
-  //send_val(20, h);
+  send_val(1, t);
+  send_val(22, h);
 }
