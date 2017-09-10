@@ -62,9 +62,9 @@ void loop() {
   check_ota();
 
   if (gv_senstick == true) {
-    set_rgb(0, 255, 0);
+
     do_sensor();
-    set_rgb(0, 0, 0);
+
     gv_senstick = false;
   }
 
@@ -79,8 +79,9 @@ void loop() {
 }
 
 void do_sensor() {
-
+  set_rgb(0, 255, 0);
   get_dht22();
+  set_rgb(0, 0, 0);
 
 }
 
