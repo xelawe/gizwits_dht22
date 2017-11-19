@@ -47,13 +47,13 @@ void setup() {
   init_mqtt(gv_hostname);
   //add_subtopic("ATSH28/KE/ALT/TEMP/....", callback_mqtt1);
 
+  set_rgb(0, 0, 0);
+  delay(500);
+
   init_dht22();
   do_sensor();
   gv_senstick = false;
   senstick.attach(60, do_senstick);
-
-  set_rgb(0, 0, 0);
-  delay(500);
 
   //setup button
   pinMode(btnpin, INPUT);

@@ -25,6 +25,7 @@ const char* mqtt_pubtopic = "ATSH28/AUSSEN/TEMP/1/value";
 
 void init_dht22() {
   dht.begin();
+  delay(500);
 }
 
 void get_dht22() {
