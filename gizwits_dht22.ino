@@ -11,11 +11,13 @@
 #include "cy_wifi.h"
 #include "cy_ota.h"
 #include "cy_weather.h"
+#include "cy_mqtt.h"
 #include "btn_led_tool.h"
 #include "dht22_tool.h"
 
 
 const char* gv_hostname = "gizwitsdht22";
+
 
 Ticker senstick;
 boolean gv_senstick;
@@ -41,6 +43,9 @@ void setup() {
   delay(500);
 
   init_ota(gv_hostname);
+
+  init_mqtt(gv_hostname);
+  //add_subtopic("ATSH28/KE/ALT/TEMP/....", callback_mqtt1);
 
   init_dht22();
   do_sensor();
@@ -73,6 +78,8 @@ void loop() {
   check_btn();
 
   set_leds();
+
+  check_mqtt();
 
   delay(100);
 

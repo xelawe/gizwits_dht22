@@ -21,6 +21,7 @@
 // as the current DHT reading algorithm adjusts itself to work on faster procs.
 DHT dht(DHTPIN, DHTTYPE);
 
+const char* mqtt_pubtopic = "ATSH28/AUSSEN/TEMP/1/value";
 
 void init_dht22() {
   dht.begin();
@@ -49,5 +50,8 @@ void get_dht22() {
   DebugPrintln("");
 
   send_val(1, t);
+  char buffer[10];
+  dtostrf(t, 0, 1, buffer);
+  client.publish(mqtt_pubtopic, buffer, true);
   send_val(22, h);
 }
